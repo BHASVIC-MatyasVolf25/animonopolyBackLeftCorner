@@ -13,7 +13,9 @@ public class Player extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     String name;
-    public Player(GreenfootImage Icon,String Name){
+    int money;
+    int square;
+    public Player(GreenfootImage Icon,String Name,int ID){
         this.name = Name;
         setImage(Icon);
         
@@ -22,5 +24,14 @@ public class Player extends Actor
     public void act()
     {
         // Add your action code here.
+    }
+    public int getMoney(){
+        return money;
+    }
+    public void addMoney(int Value){
+        money = money + Value;
+    }
+     public void subMoney(int Value){
+        money = money - Value;
     }
 }

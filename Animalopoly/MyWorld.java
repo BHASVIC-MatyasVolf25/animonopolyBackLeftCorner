@@ -19,7 +19,7 @@ public class MyWorld extends World
         super(800, 800, 1); 
         GreenfootImage image = new GreenfootImage("images\\thimble.jpg");
         image.scale(image.getWidth()/2,image.getHeight()/2);
-        Actor player = new Player(image,"eddie");
+        Actor player = new Player(image,"eddie",1);
         addObject(player,100,100);
     }
 }
