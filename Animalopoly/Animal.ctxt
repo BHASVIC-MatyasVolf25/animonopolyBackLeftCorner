@@ -1,7 +1,19 @@
 #BlueJ class context
 comment0.target=Animal
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Animal\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=void\ act()
+comment1.params=animalName\ animalCost\ icon
+comment1.target=Animal(java.lang.String,\ int,\ greenfoot.GreenfootImage)
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Animal\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=2
+comment2.params=
+comment2.target=int\ getCost()
+comment3.params=
+comment3.target=int\ getVisit()
+comment4.params=
+comment4.target=java.lang.String\ getName()
+comment5.params=
+comment5.target=boolean\ getFree()
+comment6.params=
+comment6.target=void\ upgrade()
+comment7.params=
+comment7.target=void\ isBought()
+numComments=8
