@@ -26,7 +26,7 @@ public class Animal extends Actor
         this.cost = animalCost;
         this.level = 1;
         this.visit = (int)this.cost/4;
-        this.free = false;
+        this.free = true;
         //when animal is added, it is added to a specific square using coords and given these characteristics through parameters
     }
     
@@ -51,7 +51,9 @@ public class Animal extends Actor
         //this doesnt involve taking money from the players
     }
     public void isBought(){
-        this.free = true;
+        this.free = false;
         //if bought, call this so the animal is no longer free to buy
     }
+    // on space on the board, info must be displayed and allow the player to buy animal if landed
+    // new window must be displayed? instructions to press keys to buy animals
 }
