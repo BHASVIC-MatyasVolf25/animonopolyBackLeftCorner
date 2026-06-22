@@ -14,7 +14,7 @@ public class Player extends Actor
      */
     String name;
     int money;
-    int square;
+    int square=0;
     public Player(GreenfootImage Icon,String Name,int ID){
         this.name = Name;
         setImage(Icon);
@@ -23,7 +23,7 @@ public class Player extends Actor
     }
     public void act()
     {
-        // Add your action code here.
+        int boardX[] = {47,147,247,347,447,547,647,747,747,747,747,747,747,747,647,547,447,347,247,147,47,47,47,47,47,47,47};
     }
     public int getMoney(){
         return money;
@@ -33,5 +33,15 @@ public class Player extends Actor
     }
      public void subMoney(int Value){
         money = money - Value;
+    }
+    public String getName(){
+        return name;
+    }
+    public void MovePlayer(int Value){
+        square += Value;
+        if (square>25){ //change this value if the grid is larger than 25
+            square = square - 26;
+        }
+        
     }
 }
