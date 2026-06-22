@@ -17,5 +17,9 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
+        GreenfootImage image = new GreenfootImage("images\\thimble.jpg");
+        image.scale(image.getWidth()/2,image.getHeight()/2);
+        Actor player = new Player(image,"eddie");
+        addObject(player,100,100);
     }
 }
