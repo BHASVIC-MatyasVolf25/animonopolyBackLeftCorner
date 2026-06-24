@@ -23,8 +23,8 @@ public class MyWorld extends World
         image.scale(image.getWidth()/2,image.getHeight()/2);
         Actor player = new Player(image,"",0);
         addObject(player,100,100);
-        GreenfootImage image2 = new GreenfootImage("images\\thimble.jpg");
-        image2.scale(image2.getWidth()/2,image.getHeight()/2);
+        GreenfootImage image2 = new GreenfootImage("images\\hat.jpg");
+        image2.scale(image2.getWidth()/2,image2.getHeight()/2);
         Actor player2 = new Player(image2,"",1);
         addObject(player2,100,100);
         
