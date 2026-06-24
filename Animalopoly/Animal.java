@@ -13,6 +13,7 @@ public class Animal extends Actor
     int cost;
     int level;
     int visit;
+    int set;
     boolean free;
     /**
      * Act - do whatever the Animal wants to do. This method is called whenever
@@ -30,6 +31,7 @@ public class Animal extends Actor
         this.level = 1;
         this.visit = (int)this.cost/4;
         this.free = true;
+        this.set = set;
         //when animal is added, it is added to a specific square using coords and given these characteristics through parameters
     }
     
@@ -54,6 +56,9 @@ public class Animal extends Actor
         visit+= (int)this.cost/4;
         //increases level of animal and increases visit by inital visit, cost is constant
         //this doesnt involve taking money from the players
+    }
+    public int getSet(){
+        return set;
     }
     public void isBought(){
         this.free = false;

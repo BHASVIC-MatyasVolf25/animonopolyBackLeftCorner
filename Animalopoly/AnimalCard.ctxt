@@ -1,8 +1,10 @@
 #BlueJ class context
-comment0.target=Display
+comment0.target=AnimalCard
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ AnimalMoreInfo\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=text\ Width\ Height
-comment1.target=Display(java.lang.String,\ int,\ int)
+comment1.params=animal
+comment1.target=AnimalCard(Animal)
 comment2.params=
-comment2.target=void\ act()
-numComments=3
+comment2.target=void\ createCard()
+comment3.params=
+comment3.target=void\ act()
+numComments=4

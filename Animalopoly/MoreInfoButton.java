@@ -23,28 +23,18 @@ public class MoreInfoButton extends Actor
         Hitbox = new GreenfootImage(75,75);
         //Hitbox.setColor(Color.BLACK);
         //Hitbox.fillRect(0,0,75,75);
-        //uncomment the 2 above in order to see hitboxes
+        //uncomment the 2 above in order to see hitboxe
         setImage(Hitbox);
     }
     public void act()
     {
         MyWorld world = (MyWorld) getWorld();
         LinkedAnimal = world.getAnimal(square);
-        String text = "             ";
         if(Greenfoot.mouseClicked(this)){
             if (LinkedAnimal != null){
-            text = text + LinkedAnimal.getName() + "\n";
-            text = text + "Buy Cost =     " + LinkedAnimal.getCost() + "\n";
-            text = text + "Visit Cost =     " + LinkedAnimal.getVisit() + "\n";
-            if(!LinkedAnimal.getFree()){
-                text = text + "Owned by : " + LinkedAnimal.getOwner() + "\n";
-            }
-            else{
-                text = text + "Nobody owns this";
-            }
-           } 
-           Actor display = new Display(text,200,150);
-            world.addObject(display,528,358);
+            Actor display = new AnimalCard(LinkedAnimal);
+            world.addObject(display,539,300);
+        }
     }
     }
 }
