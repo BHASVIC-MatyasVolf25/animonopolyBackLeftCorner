@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Animal extends Actor
 {
     String name;
+    int owner;
     int cost;
     int level;
     int visit;
@@ -17,12 +18,14 @@ public class Animal extends Actor
      * Act - do whatever the Animal wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Animal(String animalName, int animalCost, GreenfootImage icon){
+    public Animal(String animalName, int animalCost, GreenfootImage icon,int set){
         setImage(icon);
-        GreenfootImage myImage = getImage();
-        getImage().scale(myImage.getHeight()*1, myImage.getWidth()*1); //can be changed if image is too big or small
-        //1 can be changed with a variable and passed into constructor so size can be controlled when adding animals
-        this.name = animalName;
+        if(icon != null){ //the images are null currentlly becuase i didnt want to dowload 100 pngs of animals ; when they all have pngs we can remove this 
+            GreenfootImage myImage = getImage();
+            getImage().scale(myImage.getHeight()*1, myImage.getWidth()*1); //can be changed if image is too big or small
+            //1 can be changed with a variable and passed into constructor so size can be controlled when adding animals
+        }
+            this.name = animalName;
         this.cost = animalCost;
         this.level = 1;
         this.visit = (int)this.cost/4;
@@ -42,7 +45,9 @@ public class Animal extends Actor
     public boolean getFree(){
         return this.free;
     }
-    
+    public int getOwner(){
+        return owner;
+    }
     public void upgrade()
     {
         level++;
