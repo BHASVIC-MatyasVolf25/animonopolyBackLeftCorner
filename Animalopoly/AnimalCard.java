@@ -23,14 +23,20 @@ public class AnimalCard extends Actor
         
     }
     public void createCard(){
+        //539 , 300
         World world = getWorld();
-        
-        Text text1 = new Text(animal.getName(),1);
-        world.addObject(text1,570,200);
+        if(animal.getSet() == 8 || animal.getSet() == 5){
+            Text text1 = new Text(animal.getName(),1);
+            world.addObject(text1,getX()+31,getY()-100);
+        }
+        else{
+            Text text1 = new Text(animal.getName(),0);
+            world.addObject(text1,getX()+31,getY()-100);
+        }
         Text text2 = new Text("Cost:   "+animal.getCost(),0);
-        world.addObject(text2,550,250);
+        world.addObject(text2,getX()+31,getY()-50);
         Text text3 = new Text("Visit :   "+animal.getVisit(),0);
-        world.addObject(text3,550,300);
+        world.addObject(text3,getX()+31,getY());
         if(animal.getFree()){
             Text text4 = new Text("Nobody Owns this animal",0);
             world.addObject(text4,550,350);
