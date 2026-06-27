@@ -33,7 +33,7 @@ public class MoreInfoButton extends Actor
         if(Greenfoot.mouseClicked(this)){
             if (LinkedAnimal != null){
             Actor display = new AnimalCard(LinkedAnimal);
-            world.addObject(display,539,300);
+            world.addObject(display,572,245);
         }
     }
     }

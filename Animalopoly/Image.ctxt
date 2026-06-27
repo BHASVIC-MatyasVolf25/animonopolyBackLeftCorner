@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Image
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Image\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=link\ size
+comment1.target=Image(java.lang.String,\ int)
+comment2.params=link
+comment2.target=Image(java.lang.String)
+comment3.params=link\ timer
+comment3.target=Image(java.lang.String,\ boolean)
+comment4.params=
+comment4.target=void\ act()
+numComments=5

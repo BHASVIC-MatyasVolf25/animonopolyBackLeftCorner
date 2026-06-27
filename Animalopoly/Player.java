@@ -13,7 +13,7 @@ public class Player extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     String name;
-    int money;
+    int money = 1000;
     int square=0;
     int delay = 25;
     public Player(GreenfootImage Icon,String Name,int ID){
@@ -40,12 +40,20 @@ public class Player extends Actor
     public String getName(){
         return name;
     }
+    public int getSquare(){
+        return square;
+    }
     public void MovePlayer(int Value){
         square += Value;
         if (square>25){ //change this value if the grid is larger than 25
             square = square - 26;
         }
-        
+        MyWorld world = (MyWorld) getWorld();
+        Animal animal = world.getAnimal(square);
+        if (animal != null){
+            Actor display = new AnimalCard(animal);
+            world.addObject(display,572,245);
+        }
     }
 
 }

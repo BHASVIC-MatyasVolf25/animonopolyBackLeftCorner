@@ -18,32 +18,41 @@ public class AnimalCard extends Actor
         this.animal = animal;
         String Link = "images//Cards//Card" + animal.getSet() +".png";
         GreenfootImage image = new GreenfootImage(Link);
-        image.scale(250,300);
+        image.scale(235,290);
         setImage(image);
         
     }
+    Text texts[];
     public void createCard(){
         //539 , 300
         World world = getWorld();
+        texts = new Text[5];
         if(animal.getSet() == 8 || animal.getSet() == 5){
             Text text1 = new Text(animal.getName(),1);
-            world.addObject(text1,getX()+31,getY()-100);
+            world.addObject(text1,getX()+35,getY()-100);
+            texts[1]= text1;
         }
         else{
             Text text1 = new Text(animal.getName(),0);
-            world.addObject(text1,getX()+31,getY()-100);
+            world.addObject(text1,getX()+35,getY()-100);
+            texts[1]= text1;
         }
         Text text2 = new Text("Cost:   "+animal.getCost(),0);
-        world.addObject(text2,getX()+31,getY()-50);
+        world.addObject(text2,getX()+35,getY()-50);
+        texts[2]= text2;
         Text text3 = new Text("Visit :   "+animal.getVisit(),0);
-        world.addObject(text3,getX()+31,getY());
+        world.addObject(text3,getX()+35,getY());
+        texts[3]= text3;
         if(animal.getFree()){
             Text text4 = new Text("Nobody Owns this animal",0);
-            world.addObject(text4,550,350);
+            world.addObject(text4,getX(),getY()+50);
+            texts[4]= text4;
         }
         else{
-            Text text4 = new Text(animal.getOwner() + "owns this animal",0);
-            world.addObject(text4,550,350);
+            int owner = animal.getOwner()+1;
+            Text text4 = new Text("player " + owner + " owns this animal",0);
+            texts[4]= text4;
+            world.addObject(text4,getX()-10,getY()+50);
         }
         created = true;
     }
@@ -53,9 +62,18 @@ public class AnimalCard extends Actor
             createCard();
         }
         if(Greenfoot.mouseClicked(this)){
-            World world = getWorld();
-            world.removeObject(this);
+            Delete();
         }
         
+    }
+    public void Delete(){
+                    World world = getWorld();
+            for (int i=0;i<5;i++){
+                if(texts[i] != null){
+                    world.removeObject(texts[i]);
+                }
+            }
+            world.removeObject(this);
+            
     }
 }

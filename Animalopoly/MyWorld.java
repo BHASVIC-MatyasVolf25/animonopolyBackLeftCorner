@@ -15,24 +15,68 @@ public class MyWorld extends World
      */
     private Player[] players = {}; //array containing all the players
     private Animal[] animals;
+    private Button rollButton;
+    private Button buyButton;
+    private Button endButton;
+    private Button upgradeButton;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
-        Player[] players;
-        GreenfootImage image = new GreenfootImage("images\\thimble.jpg");
-        image.scale(image.getWidth()/2,image.getHeight()/2);
-        Player player = new Player(image,"",0);
-        GreenfootImage image2 = new GreenfootImage("images\\hat.jpg");
-        image2.scale(image2.getWidth()/2,image2.getHeight()/2);
-        Player player2 = new Player(image2,"",1);
-        players = new Player[2];
-        players[0] = player;
-        players[1] = player2;
-        addObject(player,100,100);
-        addObject(player2,100,100);
+        buyButton = new Button("images//Buttons//Buy.png");
+        addObject(buyButton,175,437);
+        
+        rollButton = new Button("images//Buttons//Roll.png");
+        addObject(rollButton,325,437);
+        
+        upgradeButton = new Button("images//Buttons//Upgrade.png");
+        addObject(upgradeButton,475,437);
+        endButton = new Button("images//Buttons//End.png");
+        addObject(endButton,625,437);
+        
+        MakePlayers();
         MakeAnimals();
-        PlaceButtons();
+    }
+    //did you guys know you could use act() in the worlds aswell?
+    //anyways this will be the game loop
+    int turn = 0; // variable stores 0,1 or 2 to show the players turn
+    boolean rolled = false; //stores wether the player has rolled in their turn
+    public void act(){
+        if (!rolled && Greenfoot.mouseClicked(rollButton)){
+            int roll = rollButton.roll();
+            players[turn].MovePlayer(roll);
+            rolled = true;
+        }
+        if(rolled && Greenfoot.mouseClicked(endButton)){ //just for testing remove this when the player needs to do things after their turn
+            rolled = false;
+            turn++;
+            if (turn == 3){
+                turn = 0;
+            }
+            addObject(new TurnInfo(),253,241);
+        }
+        if(animals[players[turn].getSquare()] != null){
+        if(rolled && Greenfoot.mouseClicked(buyButton)){
+            Animal animal = animals[players[turn].getSquare()];
+            if (animal.getFree() && players[turn].getMoney() > animal.getCost() ){
+                animal.setOwner(turn);
+                animal.setFree(false);
+                players[turn].subMoney(animal.getCost());
+                Actor display = new AnimalCard(animal);
+                addObject(display,572,245);
+                addObject(new TurnInfo(),253,241);
+            }
+            
+        }
+           if(rolled && !animals[players[turn].getSquare()].getFree()){
+            Animal animal = animals[players[turn].getSquare()];
+            players[turn].subMoney(animal.getVisit());
+            players[animal.getOwner()].addMoney(animal.getVisit());
+            addObject(new TurnInfo(),253,241);
+            //this will charge the player if they land on their own square
+            //but it does not matter because the money will go back to them
+        }
+    }
     }
     private void MakeAnimals(){
         //I decided to make the color sets like monopoly but with biomes instead...
@@ -61,16 +105,29 @@ public class MyWorld extends World
         animals[25] = new Animal("Blue whale",715,null,8);
         //squares 4 and 21 will be where the cards are placed , sqaure 13 is a skip a turn
     }
-    public void PlaceButtons(){
-        //arrays that contain the location of the squares
-        int boardX[] = {47,147,247,347,447,547,647,747,747,747,747,747,747,747,647,547,447,347,247,147,47,47,47,47,47,47,47};
-        int boardY[] = {47,47,47,47,47,47,47,47,128,220,306,391,482,559,559,559,559,559,559,559,559,482,391,306,220,128,47};
-        for(int i=1;i<26;i++){
-            if(animals[i] != null){
-                Actor button = new MoreInfoButton(i);
-                addObject(button,boardX[i],boardY[i]);
-            }
-            }
+    public void MakePlayers(){
+        GreenfootImage image = new GreenfootImage("images\\thimble.jpg");
+        image.scale(image.getWidth()/2,image.getHeight()/2);
+        Player player1 = new Player(image,"player 1",0);
+        GreenfootImage image2 = new GreenfootImage("images\\hat.jpg");
+        image2.scale(image2.getWidth()/2,image2.getHeight()/2);
+        Player player2 = new Player(image2,"player 2",1);
+        GreenfootImage image3 = new GreenfootImage("images\\chick.jpg");
+        image3.scale(image3.getWidth()/1,image3.getHeight()/1);
+        Player player3 = new Player(image3,"player 3",1);
+        players = new Player[3];
+        players[0] = player1;
+        players[1] = player2;
+        players[2] = player3;
+        addObject(player1,100,100);
+        addObject(player2,100,100);
+        addObject(player3,100,100);
+    }
+    public int getTurn(){
+        return turn;
+    }
+    public Player getPlayer(int id){
+        return players[id];
     }
     public Animal getAnimal(int square){
         return animals[square];

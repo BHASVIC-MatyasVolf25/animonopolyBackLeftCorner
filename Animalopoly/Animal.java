@@ -47,8 +47,14 @@ public class Animal extends Actor
     public boolean getFree(){
         return this.free;
     }
+    public void setFree(boolean input){
+        free = input;
+    }
     public int getOwner(){
         return owner;
+    }
+    public void setOwner(int value){
+        owner = value;
     }
     public void upgrade()
     {
