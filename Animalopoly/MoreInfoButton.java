@@ -12,9 +12,7 @@ public class MoreInfoButton extends Actor
      * Act - do whatever the MoreInfoButton wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    //this actor will be placed on every sqaure of the board and may be clicked
-    //to create an actor "animal more info" which will show more info
-    //these buttons will be invisible
+    //these buttons arnt even used anymore :(
     private int square;
     GreenfootImage Hitbox;
     private Animal LinkedAnimal;

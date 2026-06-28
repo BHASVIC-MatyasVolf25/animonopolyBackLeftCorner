@@ -39,9 +39,11 @@ public class MyWorld extends World
     }
     //did you guys know you could use act() in the worlds aswell?
     //anyways this will be the game loop
+    boolean charged = false;
     int turn = 0; // variable stores 0,1 or 2 to show the players turn
     boolean rolled = false; //stores wether the player has rolled in their turn
     public void act(){
+        AnimalCard display;
         if (!rolled && Greenfoot.mouseClicked(rollButton)){
             int roll = rollButton.roll();
             players[turn].MovePlayer(roll);
@@ -49,6 +51,7 @@ public class MyWorld extends World
         }
         if(rolled && Greenfoot.mouseClicked(endButton)){ //just for testing remove this when the player needs to do things after their turn
             rolled = false;
+            charged = false;
             turn++;
             if (turn == 3){
                 turn = 0;
@@ -62,17 +65,18 @@ public class MyWorld extends World
                 animal.setOwner(turn);
                 animal.setFree(false);
                 players[turn].subMoney(animal.getCost());
-                Actor display = new AnimalCard(animal);
+                display = new AnimalCard(animal);
                 addObject(display,572,245);
                 addObject(new TurnInfo(),253,241);
             }
             
         }
-           if(rolled && !animals[players[turn].getSquare()].getFree()){
+           if(!charged &&rolled && !animals[players[turn].getSquare()].getFree()){
             Animal animal = animals[players[turn].getSquare()];
             players[turn].subMoney(animal.getVisit());
             players[animal.getOwner()].addMoney(animal.getVisit());
             addObject(new TurnInfo(),253,241);
+            charged = true;
             //this will charge the player if they land on their own square
             //but it does not matter because the money will go back to them
         }

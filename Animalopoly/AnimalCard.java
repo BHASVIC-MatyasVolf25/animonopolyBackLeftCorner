@@ -67,10 +67,12 @@ public class AnimalCard extends Actor
         
     }
     public void Delete(){
-                    World world = getWorld();
-            for (int i=0;i<5;i++){
-                if(texts[i] != null){
-                    world.removeObject(texts[i]);
+            World world = getWorld();
+            Actor text = getOneIntersectingObject(Text.class);
+            while(text != null){
+                text = getOneIntersectingObject(Text.class);
+                if(text != null){
+                    world.removeObject(text);
                 }
             }
             world.removeObject(this);

@@ -47,6 +47,7 @@ public class Player extends Actor
         square += Value;
         if (square>25){ //change this value if the grid is larger than 25
             square = square - 26;
+            addMoney(500);
         }
         MyWorld world = (MyWorld) getWorld();
         Animal animal = world.getAnimal(square);
