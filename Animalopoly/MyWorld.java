@@ -81,6 +81,16 @@ public class MyWorld extends World
             //but it does not matter because the money will go back to them
         }
     }
+    /*if(!charged &&rolled && animals[players[turn].getSquare()].getOwner()==(turn+1)){
+            Animal animal = animals[players[turn].getSquare()];
+            players[turn].subMoney(animal.getCost());
+            animals[players[turn].getSquare()].upgrade(); //levels up the animal
+            addObject(new TurnInfo(),253,241);
+            charged = true;
+            //upgrades the animal, subtracts the cost from the player and then increasing the visit fee of the animal
+            //not fully correct
+        }*/ 
+     
     }
     private void MakeAnimals(){
         //I decided to make the color sets like monopoly but with biomes instead...
