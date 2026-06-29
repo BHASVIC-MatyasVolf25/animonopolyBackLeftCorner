@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Animal extends Actor
 {
     String name;
-    int owner;
+    int owner=-1;
     int cost;
     int level;
     int visit;
