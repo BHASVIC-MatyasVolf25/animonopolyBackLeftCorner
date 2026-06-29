@@ -110,14 +110,14 @@ public class MyWorld extends World
         //squares 4 and 21 will be where the cards are placed , sqaure 13 is a skip a turn
     }
     public void MakePlayers(){
-        GreenfootImage image = new GreenfootImage("images\\thimble.jpg");
-        image.scale(image.getWidth()/2,image.getHeight()/2);
+        GreenfootImage image = new GreenfootImage("images\\Batman.png");
+        image.scale(120,120);
         Player player1 = new Player(image,"player 1",0);
-        GreenfootImage image2 = new GreenfootImage("images\\hat.jpg");
-        image2.scale(image2.getWidth()/2,image2.getHeight()/2);
+        GreenfootImage image2 = new GreenfootImage("images\\Superman.png");
+        image2.scale(120,120);
         Player player2 = new Player(image2,"player 2",1);
-        GreenfootImage image3 = new GreenfootImage("images\\chick.jpg");
-        image3.scale(image3.getWidth()/1,image3.getHeight()/1);
+        GreenfootImage image3 = new GreenfootImage("images\\Cowboy.png");
+        image3.scale(120,120);
         Player player3 = new Player(image3,"player 3",1);
         players = new Player[3];
         players[0] = player1;
