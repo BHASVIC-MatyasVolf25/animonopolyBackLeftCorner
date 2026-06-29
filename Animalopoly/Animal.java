@@ -13,6 +13,7 @@ public class Animal extends Actor
     int cost;
     int level;
     int visit;
+    int baseVisit;
     int set;
     boolean free;
     /**
@@ -28,8 +29,9 @@ public class Animal extends Actor
         }
             this.name = animalName;
         this.cost = animalCost;
-        this.level = 1;
+        this.level = 0;
         this.visit = (int)this.cost/4;
+        this.baseVisit = (int)this.cost/4;
         this.free = true;
         this.set = set;
         //when animal is added, it is added to a specific square using coords and given these characteristics through parameters
@@ -40,6 +42,9 @@ public class Animal extends Actor
     }
     public int getVisit(){
         return this.visit;
+    }
+    public int getBaseVisit(){
+        return baseVisit;
     }
     public String getName(){
         return this.name;
@@ -61,10 +66,15 @@ public class Animal extends Actor
     }
     public void upgrade()
     {
-        level++;
-        visit+= (int)this.cost/4;
+        if(level != 3){
+            level++;
+            visit+= (int)this.cost/4;
+    }
         //increases level of animal and increases visit by inital visit, cost is constant
         //this doesnt involve taking money from the players
+    }
+    public int getUpgradeCost(){
+        return 0;
     }
     public int getSet(){
         return set;

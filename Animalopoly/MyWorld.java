@@ -81,15 +81,17 @@ public class MyWorld extends World
             //but it does not matter because the money will go back to them
         }
     }
-    /*if(!charged &&rolled && animals[players[turn].getSquare()].getOwner()==(turn+1)){
+    if(rolled && animals[players[turn].getSquare()].getOwner()==turn && Greenfoot.mouseClicked(upgradeButton)){
             Animal animal = animals[players[turn].getSquare()];
             players[turn].subMoney(animal.getCost());
             animals[players[turn].getSquare()].upgrade(); //levels up the animal
             addObject(new TurnInfo(),253,241);
             charged = true;
+            display = new AnimalCard(animal);
+            addObject(display,572,245);
             //upgrades the animal, subtracts the cost from the player and then increasing the visit fee of the animal
             //not fully correct
-        }*/ 
+        }
      
     }
     private void MakeAnimals(){
