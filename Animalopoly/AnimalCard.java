@@ -26,7 +26,7 @@ public class AnimalCard extends Actor
     public void createCard(){
         //539 , 300
         World world = getWorld();
-        texts = new Text[5];
+        texts = new Text[6];
         if(animal.getSet() == 8 || animal.getSet() == 5){
             Text text1 = new Text(animal.getName(),1);
             world.addObject(text1,getX()+35,getY()-100);
@@ -43,9 +43,11 @@ public class AnimalCard extends Actor
         Text text3 = new Text("Visit :   "+animal.getVisit(),0);
         world.addObject(text3,getX()+35,getY());
         texts[3]= text3;
+        Text text5 = new Text("Level :  "+animal.getLevel(),0);
+        world.addObject(text5,getX()+35,getY() +50);
         if(animal.getFree()){
             Text text4 = new Text("Nobody Owns this animal",0);
-            world.addObject(text4,getX(),getY()+50);
+            world.addObject(text4,getX(),getY()+100);
             texts[4]= text4;
         }
         else{

@@ -53,6 +53,9 @@ public class Animal extends Actor
     public int getOwner(){
         return owner;
     }
+    public int getLevel(){
+        return level;
+    }
     public void setOwner(int value){
         owner = value;
     }
