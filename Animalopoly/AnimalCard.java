@@ -60,7 +60,7 @@ public class AnimalCard extends Actor
         }
         else{
             int owner = animal.getOwner()+1;
-            Text text4 = new Text("player " + owner + " owns this animal",0);
+            Text text4 = new Text("player " + owner + " owns this",0);
             texts[4]= text4;
             world.addObject(text4,getX(),getY()+120);
         }
