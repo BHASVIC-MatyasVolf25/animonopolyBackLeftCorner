@@ -58,15 +58,16 @@ public class MyWorld extends World
             rolled = false;
             charged = false;
             turn++;
-<<<<<<< Updated upstream
-            if (turn == 4){
-=======
+
+            
+
             if (turn >= playercount){
->>>>>>> Stashed changes
+
                 turn = 0;
             }
             addObject(new TurnInfo(),253,241);
-        }
+        
+    }
     if(animals[players[turn].getSquare()] != null){
         if(rolled && Greenfoot.mouseClicked(buyButton)){
             Animal animal = animals[players[turn].getSquare()];
@@ -88,10 +89,10 @@ public class MyWorld extends World
             //this will charge the player if they land on their own square
             //but it does not matter because the money will go back to them
         }
-    }
     
-    Animal animal = animals[players[turn].getSquare()];
-    if(rolled && animal.getOwner()==turn && Greenfoot.mouseClicked(upgradeButton)){
+    
+        Animal animal = animals[players[turn].getSquare()];
+        if(rolled && animal.getOwner()==turn && Greenfoot.mouseClicked(upgradeButton)){
             if (animal.getLevel() != 3 && animal.getCost() < players[turn].getMoney()){
                 players[turn].subMoney(animal.getCost());
                 animals[players[turn].getSquare()].upgrade(); //levels up the animal
@@ -103,6 +104,7 @@ public class MyWorld extends World
             //upgrades the animal, subtracts the cost from the player and then increasing the visit fee of the animal
             //not fully correct?
         }
+    }
     }
     private void MakeAnimals(){
         //I decided to make the color sets like monopoly but with biomes instead...
@@ -149,7 +151,7 @@ public class MyWorld extends World
         image3.scale(120,120);
         if(playercount >= 3){
         Player player3 = new Player(image3,"player 3",1);
-<<<<<<< Updated upstream
+
         GreenfootImage image4 = new GreenfootImage("images\\sheep.png");
         image.scale(120,120);
         Player player4 = new Player(image4,"player 4",1);
@@ -162,11 +164,11 @@ public class MyWorld extends World
         addObject(player2,100,100);
         addObject(player3,100,100);
         addObject(player4,100,100);
-=======
+
         players[2] = player3;
         addObject(player3,100,100);
         }
->>>>>>> Stashed changes
+
     }
     public int getTurn(){
         return turn;
