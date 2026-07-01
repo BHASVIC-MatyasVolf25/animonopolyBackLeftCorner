@@ -19,13 +19,15 @@ public class MyWorld extends World
     private Button buyButton;
     private Button endButton;
     private Button upgradeButton;
+    private int playercount;
     //turnInfos are never removed so as the game continues they stack and there can be lots which would slow the game
     //add a variable current Turninfo, which after adding the next turnInfo, you delete the previous one through variable
     //then you set the current turnInfo to the new one
-    public MyWorld()
+    public MyWorld(int playercount)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
+        this.playercount = playercount;
         buyButton = new Button("images//Buttons//Buy.png");
         addObject(buyButton,175,437);
         
@@ -56,12 +58,16 @@ public class MyWorld extends World
             rolled = false;
             charged = false;
             turn++;
+<<<<<<< Updated upstream
             if (turn == 4){
+=======
+            if (turn >= playercount){
+>>>>>>> Stashed changes
                 turn = 0;
             }
             addObject(new TurnInfo(),253,241);
         }
-        if(animals[players[turn].getSquare()] != null){
+    if(animals[players[turn].getSquare()] != null){
         if(rolled && Greenfoot.mouseClicked(buyButton)){
             Animal animal = animals[players[turn].getSquare()];
             if (animal.getFree() && players[turn].getMoney() > animal.getCost() ){
@@ -72,7 +78,6 @@ public class MyWorld extends World
                 addObject(display,572,245);
                 addObject(new TurnInfo(),253,241);
             }
-            
         }
            if(!charged &&rolled && !animals[players[turn].getSquare()].getFree()){
             Animal animal = animals[players[turn].getSquare()];
@@ -83,6 +88,7 @@ public class MyWorld extends World
             //this will charge the player if they land on their own square
             //but it does not matter because the money will go back to them
         }
+    }
     
     Animal animal = animals[players[turn].getSquare()];
     if(rolled && animal.getOwner()==turn && Greenfoot.mouseClicked(upgradeButton)){
@@ -97,7 +103,6 @@ public class MyWorld extends World
             //upgrades the animal, subtracts the cost from the player and then increasing the visit fee of the animal
             //not fully correct
         }
-    }
     }
     private void MakeAnimals(){
         //I decided to make the color sets like monopoly but with biomes instead...
@@ -127,15 +132,24 @@ public class MyWorld extends World
         //squares 4 and 21 will be where the cards are placed , sqaure 13 is a skip a turn
     }
     public void MakePlayers(){
+        players = new Player[5];
         GreenfootImage image = new GreenfootImage("images\\Batman.png");
         image.scale(120,120);
         Player player1 = new Player(image,"player 1",0);
         GreenfootImage image2 = new GreenfootImage("images\\Superman.png");
+        players[0] = player1;
+        addObject(player1,100,100);
+                
         image2.scale(120,120);
         Player player2 = new Player(image2,"player 2",1);
+        players[1] = player2;
+        addObject(player2,100,100);
+        
         GreenfootImage image3 = new GreenfootImage("images\\Cowboy.png");
         image3.scale(120,120);
+        if(playercount >= 3){
         Player player3 = new Player(image3,"player 3",1);
+<<<<<<< Updated upstream
         GreenfootImage image4 = new GreenfootImage("images\\sheep.png");
         image.scale(120,120);
         Player player4 = new Player(image4,"player 4",1);
@@ -148,6 +162,11 @@ public class MyWorld extends World
         addObject(player2,100,100);
         addObject(player3,100,100);
         addObject(player4,100,100);
+=======
+        players[2] = player3;
+        addObject(player3,100,100);
+        }
+>>>>>>> Stashed changes
     }
     public int getTurn(){
         return turn;
