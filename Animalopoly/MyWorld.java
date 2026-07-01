@@ -56,7 +56,7 @@ public class MyWorld extends World
             rolled = false;
             charged = false;
             turn++;
-            if (turn == 3){
+            if (turn == 4){
                 turn = 0;
             }
             addObject(new TurnInfo(),253,241);
@@ -136,13 +136,18 @@ public class MyWorld extends World
         GreenfootImage image3 = new GreenfootImage("images\\Cowboy.png");
         image3.scale(120,120);
         Player player3 = new Player(image3,"player 3",1);
-        players = new Player[3];
+        GreenfootImage image4 = new GreenfootImage("images\\sheep.png");
+        image.scale(120,120);
+        Player player4 = new Player(image4,"player 4",1);
+        players = new Player[4];
         players[0] = player1;
         players[1] = player2;
         players[2] = player3;
+        players[3] = player4;
         addObject(player1,100,100);
         addObject(player2,100,100);
         addObject(player3,100,100);
+        addObject(player4,100,100);
     }
     public int getTurn(){
         return turn;
