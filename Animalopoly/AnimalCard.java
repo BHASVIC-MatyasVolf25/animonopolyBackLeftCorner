@@ -51,7 +51,8 @@ public class AnimalCard extends Actor
             world.addObject(text3,getX()+15,getY()+(i*20));
             price += animal.getCost()/4;
         }
-        world.addObject(new Text("Upgrade cost:   "+animal.getCost(),0),getX()+15,getY()+100);
+        world.addObject(new Text("Upgrade cost:  "+animal.getCost(),0),getX(),getY()+100);
+        // removes the last 0
         if(animal.getFree()){
             Text text4 = new Text("Nobody Owns this animal",0);
             world.addObject(text4,getX(),getY()+120);

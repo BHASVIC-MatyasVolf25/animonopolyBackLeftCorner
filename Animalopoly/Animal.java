@@ -64,8 +64,7 @@ public class Animal extends Actor
     public void setOwner(int value){
         owner = value;
     }
-    public void upgrade()
-    {
+    public void upgrade(){
         if(level != 3){
             level++;
             visit+= (int)this.cost/4;
