@@ -25,7 +25,6 @@ public class TurnInfo extends Actor
         Player player =  world.getPlayer(world.getTurn());
         Text text = new Text(player.getName(),0);
         world.addObject(text,getX()+60,getY()-15);
-        
         Text text2 = new Text("Money:  "+player.getMoney(),0);
         world.addObject(text2,getX()+35,getY());
         
