@@ -19,6 +19,9 @@ public class MyWorld extends World
     private Button buyButton;
     private Button endButton;
     private Button upgradeButton;
+    //turnInfos are never removed so as the game continues they stack and there can be lots which would slow the game
+    //add a variable current Turninfo, which after adding the next turnInfo, you delete the previous one through variable
+    //then you set the current turnInfo to the new one
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -41,7 +44,7 @@ public class MyWorld extends World
     //anyways this will be the game loop
     boolean charged = false;
     int turn = 0; // variable stores 0,1 or 2 to show the players turn
-    boolean rolled = false; //stores wether the player has rolled in their turn
+    boolean rolled = false; //stores whether the player has rolled in their turn
     public void act(){
         AnimalCard display;
         if (!rolled && Greenfoot.mouseClicked(rollButton)){
