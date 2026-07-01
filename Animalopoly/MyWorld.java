@@ -95,7 +95,7 @@ public class MyWorld extends World
                 addObject(display,572,245);
             }
             //upgrades the animal, subtracts the cost from the player and then increasing the visit fee of the animal
-            //not fully correct
+            //not fully correct?
         }
     }
     }

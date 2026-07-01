@@ -14,7 +14,7 @@ public class Text extends Actor
      */
     GreenfootImage background = null;
     public Text(String text,int color){
-        background = new GreenfootImage(100,100);
+        background = new GreenfootImage(105,100); //changed from 100 to 105 so full upgrade cost is shown
         //background.setColor(Color.BLACK);
         //background.fillRect(0,0,75,75);
         setImage(background);
