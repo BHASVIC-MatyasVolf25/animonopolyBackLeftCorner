@@ -83,7 +83,7 @@ public class MyWorld extends World
             //this will charge the player if they land on their own square
             //but it does not matter because the money will go back to them
         }
-    }
+    
     Animal animal = animals[players[turn].getSquare()];
     if(rolled && animal.getOwner()==turn && Greenfoot.mouseClicked(upgradeButton)){
             if (animal.getLevel() != 3 && animal.getCost() < players[turn].getMoney()){
@@ -97,7 +97,7 @@ public class MyWorld extends World
             //upgrades the animal, subtracts the cost from the player and then increasing the visit fee of the animal
             //not fully correct
         }
-     
+    }
     }
     private void MakeAnimals(){
         //I decided to make the color sets like monopoly but with biomes instead...
